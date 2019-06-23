@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXSnackbar;
+import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXSnackbar.SnackbarEvent;
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
@@ -17,12 +18,12 @@ public class MenuStage {
 	public MenuStage(Stage stage, String username) {
 
 		AnchorPane pane = new AnchorPane();
-		pane.setPrefSize(800, 500);
+		pane.setPrefSize(900, 500);
 		Scene scene = new Scene(pane);
 		stage.setScene(scene);
 		scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
 		pane.getStyleClass().addAll("b");
-		pane.setStyle("-fx-background-color: #616161;");
+		pane.setStyle("-fx-background-color: #757575;");
 
 		JFXListView<JFXButton> list = new JFXListView<JFXButton>();
 		JFXButton btnArquivo = new JFXButton("ARQUIVOS / DOCUMENTOS");
@@ -33,7 +34,7 @@ public class MenuStage {
 		JFXButton btnAgenda = new JFXButton("AGENDAMENTOS");
 		JFXButton btnRelatorio = new JFXButton("RELATÓRIOS");
 		JFXButton btnUnidade = new JFXButton("UNIDADES");
-		JFXButton btnFinanceiro = new JFXButton("FINANCEIRO");
+		JFXButton btnEventos = new JFXButton("EVENTOS");
 		JFXButton btnConfig = new JFXButton("CONFIGURAÇÕES");
 		JFXButton btnAjuda = new JFXButton("AJUDA - SUPORTE");
 		JFXButton btnSair = new JFXButton("SAIR");
@@ -46,19 +47,48 @@ public class MenuStage {
 		btnAgenda.setPrefSize(220, 25);
 		btnRelatorio.setPrefSize(220, 25);
 		btnUnidade.setPrefSize(220, 25);
-		btnFinanceiro.setPrefSize(220, 25);
+		btnEventos.setPrefSize(220, 25);
 		btnConfig.setPrefSize(220, 25);
 		btnAjuda.setPrefSize(220, 25);
 		btnSair.setPrefSize(220, 25);
 
+		btnSair.setButtonType(ButtonType.RAISED);
+		btnSair.setStyle("-fx-background-color: #FAFAFA; -fx-cursor: hand");
+		btnAjuda.setButtonType(ButtonType.RAISED);
+		btnAjuda.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnUnidade.setButtonType(ButtonType.RAISED);
+		btnUnidade.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnEventos.setButtonType(ButtonType.RAISED);
+		btnEventos.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnConfig.setButtonType(ButtonType.RAISED);
+		btnConfig.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnVagas.setButtonType(ButtonType.RAISED);
+		btnVagas.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnAgenda.setButtonType(ButtonType.RAISED);
+		btnAgenda.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnRelatorio.setButtonType(ButtonType.RAISED);
+		btnRelatorio.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnArquivo.setButtonType(ButtonType.RAISED);
+		btnArquivo.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnLeitura.setButtonType(ButtonType.RAISED);
+		btnLeitura.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnDocumento.setButtonType(ButtonType.RAISED);
+		btnDocumento.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnCondominio.setButtonType(ButtonType.RAISED);
+		btnCondominio.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		
 		list.getItems().addAll(btnArquivo, btnLeitura, btnDocumento, btnCondominio, btnVagas, btnAgenda, btnRelatorio,
-				btnUnidade, btnFinanceiro, btnConfig, btnAjuda, btnSair);
+				btnUnidade, btnEventos, btnConfig, btnAjuda, btnSair);
 		list.setStyle("-fx-background-color: #212121 ; -fx-cursor: hand; -fx-base: #212121;");
 		list.setPrefHeight(570);
 		list.setLayoutY(70);
+		list.setLayoutX(10);
 
+		btnSair.setTextFill(Color.BLACK);
+		
 		Label lblUsuario = new Label("Bem vindo(a) " + username);
-		lblUsuario.setLayoutX(620);
+		lblUsuario.setTextFill(Color.WHITE);
+		lblUsuario.setLayoutX(680);
 		lblUsuario.setLayoutY(60);
 	
 		Label lblVisit = new Label("REGISTRAR VISITANTE");
@@ -116,46 +146,46 @@ public class MenuStage {
 		lblTitulo.setTextFill(Color.WHITE);
 		JFXRippler rippTitulo = new JFXRippler(lblTitulo);
 
-		lblTitulo.setPrefSize(800, 50);
+		lblTitulo.setPrefSize(900, 50);
 
-		rippVisit.setLayoutX(290);
-		rippVisit.setLayoutY(150);
+		rippVisit.setLayoutX(370);
+		rippVisit.setLayoutY(160);
 		lblVisit.setPrefSize(190, 50);
 
-		rippCar.setLayoutX(290);
-		rippCar.setLayoutY(220);
+		rippCar.setLayoutX(370);
+		rippCar.setLayoutY(230);
 		lblCar.setPrefSize(190, 50);
 
-		rippKey.setLayoutX(290);
-		rippKey.setLayoutY(290);
+		rippKey.setLayoutX(370);
+		rippKey.setLayoutY(300);
 		lblKey.setPrefSize(190, 50);
 
-		rippMural.setLayoutX(290);
-		rippMural.setLayoutY(360);
+		rippMural.setLayoutX(370);
+		rippMural.setLayoutY(370);
 		lblMural.setPrefSize(190, 50);
 
-		rippLost.setLayoutX(290);
-		rippLost.setLayoutY(430);
+		rippLost.setLayoutX(370);
+		rippLost.setLayoutY(440);
 		lblLost.setPrefSize(190, 50);
 
-		rippAssembleia.setLayoutX(550);
-		rippAssembleia.setLayoutY(150);
+		rippAssembleia.setLayoutX(640);
+		rippAssembleia.setLayoutY(160);
 		lblAssembleia.setPrefSize(190, 50);
 
-		rippCorresp.setLayoutX(550);
-		rippCorresp.setLayoutY(220);
+		rippCorresp.setLayoutX(640);
+		rippCorresp.setLayoutY(230);
 		lblCorrespondencia.setPrefSize(190, 50);
 
-		rippMoradores.setLayoutX(550);
-		rippMoradores.setLayoutY(290);
+		rippMoradores.setLayoutX(640);
+		rippMoradores.setLayoutY(300);
 		lblMoradores.setPrefSize(190, 50);
 
-		rippPhone.setLayoutX(550);
-		rippPhone.setLayoutY(360);
+		rippPhone.setLayoutX(640);
+		rippPhone.setLayoutY(370);
 		lblPhone.setPrefSize(190, 50);
 
-		rippMonitor.setLayoutX(550);
-		rippMonitor.setLayoutY(430);
+		rippMonitor.setLayoutX(640);
+		rippMonitor.setLayoutY(440);
 		lblMonitor.setPrefSize(190, 50);
 
 		JFXSnackbar bar = new JFXSnackbar(pane);

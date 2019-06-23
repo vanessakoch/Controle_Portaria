@@ -24,45 +24,45 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LoginStage {
-	private JFXButton btnLogin;
+	private JFXButton btnEntrar;
 	private TextField txtUser;
 	private PasswordField txtPass;
 
 	public LoginStage(Stage stage) throws Exception {
 
 		AnchorPane pane = new AnchorPane();
-		pane.setPrefSize(400, 300);
+		pane.setPrefSize(450, 350);
 		Scene scene = new Scene(pane);
 		scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
 		pane.getStyleClass().addAll("b");
-		pane.setStyle("-fx-background-color: #616161;");
+		pane.setStyle("-fx-background-color: #757575;");
 
 		stage.setScene(scene);
 		FileInputStream input = new FileInputStream(
-				"C:\\Users\\vah_n\\eclipse-workspace\\ControleDePortaria\\src\\main\\java\\br\\edu\\ifsc\\util\\6.png");
+				"C:\\Users\\vah_n\\eclipse-workspace\\ControleDePortaria\\src\\main\\java\\br\\edu\\ifsc\\util\\4.png");
 		Image image = new Image(input);
 		ImageView imageView = new ImageView(image);
 
 		imageView.setFitHeight(70);
 		imageView.setFitWidth(70);
-		imageView.setLayoutX(165);
+		imageView.setLayoutX(200);
 		imageView.setLayoutY(30);
 
 		txtUser = new TextField();
 		txtPass = new PasswordField();
-		btnLogin = new JFXButton(Strings.btnLogin);
+		btnEntrar = new JFXButton(Strings.btnLogin);
 
-		btnLogin.setLayoutX(150);
-		btnLogin.setLayoutY(235);
-		btnLogin.setButtonType(ButtonType.RAISED);
-		btnLogin.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
-		btnLogin.setTextFill(Color.WHITE);
-		btnLogin.setPrefSize(100, 40);
+		btnEntrar.setLayoutX(185);
+		btnEntrar.setLayoutY(270);
+		btnEntrar.setButtonType(ButtonType.RAISED);
+		btnEntrar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
+		btnEntrar.setTextFill(Color.WHITE);
+		btnEntrar.setPrefSize(100, 40);
 
-		txtPass.setLayoutX(125);
-		txtPass.setLayoutY(150);
-		txtUser.setLayoutX(125);
-		txtUser.setLayoutY(110);
+		txtPass.setLayoutX(160);
+		txtPass.setLayoutY(170);
+		txtUser.setLayoutX(160);
+		txtUser.setLayoutY(130);
 		txtUser.setMaxWidth(150);
 		txtUser.setMinWidth(150);
 		txtUser.setPrefWidth(150);
@@ -70,15 +70,14 @@ public class LoginStage {
 		txtPass.setPromptText(Strings.password);
 
 		JFXComboBox<String> dbSource = new JFXComboBox<String>();
-		dbSource.getItems().add("JSON");
-		dbSource.getItems().add("XML");
-		dbSource.setLayoutX(112);
-		dbSource.setLayoutY(195);
+		dbSource.getItems().addAll("JSON", "XML");
+		dbSource.setLayoutX(150);
+		dbSource.setLayoutY(220);
 		dbSource.setPromptText("\tSelect DB Version");
 		dbSource.setStyle("-fx-background-color: #E0E0E0;");
 		dbSource.setOnAction(e -> changeDB(dbSource.getSelectionModel().getSelectedItem()));
-		
-		btnLogin.setOnMouseClicked(e -> {
+
+		btnEntrar.setOnMouseClicked(e -> {
 			try {
 				login(txtUser.getText(), txtPass.getText(), stage);
 			} catch (LoginException ex) {
@@ -88,7 +87,7 @@ public class LoginStage {
 			}
 		});
 
-		pane.getChildren().addAll(btnLogin, txtUser, txtPass, dbSource, imageView);
+		pane.getChildren().addAll(btnEntrar, txtUser, txtPass, dbSource, imageView);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
@@ -142,9 +141,9 @@ public class LoginStage {
 
 	private void showLoginError() {
 		Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-        dialogoErro.setTitle("Erro de autenticação");
-        dialogoErro.setHeaderText("\tERRO!!");
-        dialogoErro.setContentText("\tCONTA NÃO ENCONTRADA");
-        dialogoErro.showAndWait();
+		dialogoErro.setTitle("Erro de autenticação");
+		dialogoErro.setHeaderText("\tERRO!!");
+		dialogoErro.setContentText("\tCONTA NÃO ENCONTRADA");
+		dialogoErro.showAndWait();
 	}
 }
