@@ -4,29 +4,19 @@ import java.util.Date;
 
 public class Visitante extends PessoaFisica {
 
-	private String motivo;
-	private String local;
+	private String localVisita;
 
-	public Visitante(String nome, String cpf, Date dataNasc, String telefone, String motivo, String local) {
+	public Visitante(String nome, String cpf, Date dataNasc, String telefone, String local) {
 		super(nome, cpf, dataNasc, telefone);
-		this.motivo = motivo;
-		this.local = local;
-	}
-
-	public String getMotivo() {
-		return motivo;
-	}
-
-	public void setMotivo(String motivo) {
-		this.motivo = motivo;
+		this.localVisita = local;
 	}
 
 	public String getLocal() {
-		return local;
+		return localVisita;
 	}
 
 	public void setLocal(String local) {
-		this.local = local;
+		this.localVisita = local;
 	}
 
 }

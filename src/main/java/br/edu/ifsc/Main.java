@@ -1,8 +1,8 @@
 package br.edu.ifsc;
 
-import br.edu.ifsc.entities.User;
 import br.edu.ifsc.stages.LoginStage;
 import br.edu.ifsc.stages.MenuStage;
+import br.edu.ifsc.stages.VisitaStage;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,6 +14,6 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		new MenuStage(primaryStage, User.class.getName());
+		new VisitaStage(primaryStage);
 	}
 }
