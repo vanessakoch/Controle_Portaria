@@ -128,12 +128,14 @@ public class LoginStage {
 				showLoginError();
 				return;
 			}
-		} catch (NullPointerException ex) {
+		}
+		catch (NullPointerException ex) {
 			throw new DBException();
 		}
 		try {
 			new MenuStage(new Stage(), txtUser.getText());
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		stage.close();
@@ -141,9 +143,8 @@ public class LoginStage {
 
 	private void showLoginError() {
 		Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-		dialogoErro.setTitle("Erro de autenticação");
-		dialogoErro.setHeaderText("\tERRO!!");
-		dialogoErro.setContentText("\tCONTA NÃO ENCONTRADA");
+		dialogoErro.setTitle("ERRO");
+		dialogoErro.setHeaderText("\t\t\tDADOS INCORRETOS");
 		dialogoErro.showAndWait();
 	}
 }
