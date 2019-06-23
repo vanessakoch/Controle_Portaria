@@ -1,9 +1,11 @@
 package br.edu.ifsc.stages;
 
 import java.io.FileInputStream;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXComboBox;
+
 import br.edu.ifsc.db.UserJson;
 import br.edu.ifsc.db.UserXml;
 import br.edu.ifsc.entities.User;
@@ -13,7 +15,6 @@ import br.edu.ifsc.util.DB;
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -76,7 +77,7 @@ public class LoginStage {
 		dbSource.setPromptText("\tSelect DB Version");
 		dbSource.setStyle("-fx-background-color: #E0E0E0;");
 		dbSource.setOnAction(e -> changeDB(dbSource.getSelectionModel().getSelectedItem()));
-
+		
 		btnLogin.setOnMouseClicked(e -> {
 			try {
 				login(txtUser.getText(), txtPass.getText(), stage);
@@ -140,9 +141,10 @@ public class LoginStage {
 	}
 
 	private void showLoginError() {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle(Strings.loginError);
-		alert.setHeaderText(Strings.loginError);
-		alert.showAndWait();
+		Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
+        dialogoErro.setTitle("Erro de autenticação");
+        dialogoErro.setHeaderText("\tERRO!!");
+        dialogoErro.setContentText("\tCONTA NÃO ENCONTRADA");
+        dialogoErro.showAndWait();
 	}
 }
