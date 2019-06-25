@@ -3,14 +3,13 @@ package br.edu.ifsc.stages;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -124,7 +123,7 @@ public class MoradorStage {
 		lblVagaGaragem.setLayoutX(370);
 		lblVagaGaragem.setLayoutY(360);
 		lblMenorIdade.setLayoutX(160);
-		;
+		
 		lblMenorIdade.setLayoutY(300);
 		simNao.setLayoutX(200);
 		simNao.setLayoutY(310);
