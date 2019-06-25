@@ -16,9 +16,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class MoradorStage {
+public class CadMoradorStage {
 
-	public MoradorStage(Stage stage) {
+	public CadMoradorStage(Stage stage) {
 
 		AnchorPane pane = new AnchorPane();
 		pane.setPrefSize(500, 550);
@@ -38,6 +38,7 @@ public class MoradorStage {
 		Label lblMoradores = new Label("Nº Moradores");
 		Label lblMenorIdade = new Label("Morador menor de idade?");
 		Label lblNasc = new Label("Data Nascimento");
+		Label lblCadastro = new Label("TIPO DE CADASTRO");
 
 		lblData.setTextFill(Color.BLACK);
 		lblNome.setTextFill(Color.BLACK);
@@ -49,7 +50,8 @@ public class MoradorStage {
 		lblBloco.setTextFill(Color.BLACK);
 		lblMoradores.setTextFill(Color.BLACK);
 		lblMenorIdade.setTextFill(Color.BLACK);
-
+		lblCadastro.setTextFill(Color.BLACK);
+		
 		JFXButton btnSalvar = new JFXButton("SALVAR");
 		JFXButton btnCancelar = new JFXButton("CANCELAR");
 
@@ -65,17 +67,17 @@ public class MoradorStage {
 		JFXRippler rippCVisita = new JFXRippler(lblCadastroMorador);
 		JFXCheckBox checkBoxVisita = new JFXCheckBox("VISITANTE");
 		JFXCheckBox checkBoxMorador = new JFXCheckBox("MORADOR");
-		JFXCheckBox checkBoxFuncionario = new JFXCheckBox("FUNCIONÁRIO");
+		JFXCheckBox checkBoxVeiculo = new JFXCheckBox("VEÍCULO");
 		JFXDatePicker dateEntrada = new JFXDatePicker();
 		JFXDatePicker dateNasc = new JFXDatePicker();
 		JFXToggleButton simNao = new JFXToggleButton();
 
-		checkBoxFuncionario.getStyleClass().add("custom-jfx-check-box");
+		checkBoxVeiculo.getStyleClass().add("custom-jfx-check-box");
 		checkBoxVisita.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.setFont(Font.font(10));
 		checkBoxVisita.setFont(Font.font(10));
-		checkBoxFuncionario.setFont(Font.font(10));
+		checkBoxVeiculo.setFont(Font.font(10));
 
 		btnSalvar.setButtonType(ButtonType.RAISED);
 		btnSalvar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
@@ -96,64 +98,65 @@ public class MoradorStage {
 		lblCadastroMorador.setPrefSize(700, 50);
 		checkBoxVisita.setTextFill(Color.BLACK);
 		checkBoxMorador.setTextFill(Color.BLACK);
-		checkBoxFuncionario.setTextFill(Color.BLACK);
+		checkBoxVeiculo.setTextFill(Color.BLACK);
 		checkBoxVisita.setUnCheckedColor(Color.BLACK);
 		checkBoxMorador.setUnCheckedColor(Color.BLACK);
-		checkBoxFuncionario.setUnCheckedColor(Color.BLACK);
+		checkBoxVeiculo.setUnCheckedColor(Color.BLACK);
 		checkBoxVisita.setCheckedColor(Color.RED);
 		checkBoxMorador.setCheckedColor(Color.BLUE);
-		checkBoxFuncionario.setCheckedColor(Color.BLACK);
+		checkBoxVeiculo.setCheckedColor(Color.BLACK);
 
+		lblCadastro.setLayoutX(290);
+		lblCadastro.setLayoutY(70);
 		lblData.setLayoutX(50);
 		lblData.setLayoutY(190);
 		lblNome.setLayoutX(50);
-		lblNome.setLayoutY(240);
+		lblNome.setLayoutY(230);
 		lblCpf.setLayoutX(370);
-		lblCpf.setLayoutY(240);
+		lblCpf.setLayoutY(230);
 		lblBloco.setLayoutX(220);
 		lblBloco.setLayoutY(360);
 		lblMoradores.setLayoutX(50);
-		lblMoradores.setLayoutY(300);
+		lblMoradores.setLayoutY(290);
 		lblNasc.setLayoutX(525);
 		lblNasc.setLayoutY(190);
 		lblTelefone.setLayoutX(370);
-		lblTelefone.setLayoutY(300);
+		lblTelefone.setLayoutY(290);
 		lblApartamento.setLayoutX(50);
 		lblApartamento.setLayoutY(360);
 		lblVagaGaragem.setLayoutX(370);
 		lblVagaGaragem.setLayoutY(360);
 		lblMenorIdade.setLayoutX(160);
-		
-		lblMenorIdade.setLayoutY(300);
+		lblMenorIdade.setLayoutY(290);
 		simNao.setLayoutX(200);
-		simNao.setLayoutY(310);
+		simNao.setLayoutY(300);
 		checkBoxVisita.setLayoutX(210);
-		checkBoxVisita.setLayoutY(100);
+		checkBoxVisita.setLayoutY(110);
 		checkBoxMorador.setLayoutX(310);
-		checkBoxMorador.setLayoutY(100);
-		checkBoxFuncionario.setLayoutX(410);
-		checkBoxFuncionario.setLayoutY(100);
+		checkBoxMorador.setLayoutY(110);
+		checkBoxVeiculo.setLayoutX(410);
+		checkBoxVeiculo.setLayoutY(110);
 
 		txtNome.setLayoutX(50);
-		txtNome.setLayoutY(260);
+		txtNome.setLayoutY(245);
 		txtCpf.setLayoutX(370);
-		txtCpf.setLayoutY(260);
+		txtCpf.setLayoutY(245);
 		txtTel.setLayoutX(370);
-		txtTel.setLayoutY(320);
-		txtApartamento.setLayoutX(60);
+		txtTel.setLayoutY(310);
+		txtApartamento.setLayoutX(50);
 		txtApartamento.setLayoutY(380);
 		txtVagaGaragem.setLayoutX(370);
 		txtVagaGaragem.setLayoutY(380);
-		txtMoradores.setLayoutX(60);
-		txtMoradores.setLayoutY(320);
-		txtBloco.setLayoutX(215);
+		txtMoradores.setLayoutX(50);
+		txtMoradores.setLayoutY(310);
+		txtBloco.setLayoutX(220);
 		txtBloco.setLayoutY(380);
-		txtMoradores.setPrefWidth(50);
-		txtApartamento.setPrefWidth(50);
+		txtMoradores.setPrefWidth(80);
+		txtApartamento.setPrefWidth(80);
 		txtNome.setPrefWidth(250);
 		txtCpf.setPrefWidth(250);
 		txtTel.setPrefWidth(250);
-		txtBloco.setPrefWidth(50);
+		txtBloco.setPrefWidth(35);
 		txtVagaGaragem.setPrefWidth(250);
 
 		dateEntrada.setLayoutX(150);
@@ -166,10 +169,10 @@ public class MoradorStage {
 		dateEntrada.setDefaultColor(Color.valueOf("#311B92"));
 		dateNasc.setDefaultColor(Color.valueOf("#311B92"));
 
-		pane.getChildren().addAll(lblNasc, dateNasc, simNao, lblMenorIdade, lblMoradores, lblBloco, txtMoradores,
+		pane.getChildren().addAll(lblCadastro,lblNasc, dateNasc, simNao, lblMenorIdade, lblMoradores, lblBloco, txtMoradores,
 				txtBloco, btnSalvar, btnCancelar, dateEntrada, txtNome, txtCpf, txtTel, txtApartamento, txtVagaGaragem,
 				lblData, lblNome, lblCpf, lblTelefone, rippCVisita, lblApartamento, lblVagaGaragem, checkBoxVisita,
-				checkBoxMorador, checkBoxFuncionario);
+				checkBoxMorador, checkBoxVeiculo);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();

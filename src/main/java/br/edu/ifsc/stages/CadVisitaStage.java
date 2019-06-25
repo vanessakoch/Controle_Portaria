@@ -17,9 +17,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class VisitaStage {
+public class CadVisitaStage {
 
-	public VisitaStage(Stage stage) {
+	public CadVisitaStage(Stage stage) {
 
 		AnchorPane pane = new AnchorPane();
 		pane.setPrefSize(500, 550);
@@ -37,6 +37,7 @@ public class VisitaStage {
 		Label lblTelefone = new Label("Telefone");
 		Label lblLocal = new Label("Local da Visita");
 		Label lblObs = new Label("Observações");
+		Label lblCadastro = new Label("TIPO DE CADASTRO");
 
 		lblData.setTextFill(Color.BLACK);
 		lblHora.setTextFill(Color.BLACK);
@@ -46,6 +47,7 @@ public class VisitaStage {
 		lblTelefone.setTextFill(Color.BLACK);
 		lblLocal.setTextFill(Color.BLACK);
 		lblObs.setTextFill(Color.BLACK);
+		lblCadastro.setTextFill(Color.BLACK);
 		
 		JFXButton btnSalvar = new JFXButton("SALVAR");
 		JFXButton btnCancelar = new JFXButton("CANCELAR");
@@ -60,7 +62,7 @@ public class VisitaStage {
 		JFXRippler rippCVisita = new JFXRippler(lblCadastroVisita);
 		JFXCheckBox checkBoxVisita = new JFXCheckBox("VISITANTE");
 		JFXCheckBox checkBoxMorador = new JFXCheckBox("MORADOR");
-		JFXCheckBox checkBoxFuncionario = new JFXCheckBox("FUNCIONÁRIO");
+		JFXCheckBox checkBoxVeiculo = new JFXCheckBox("VEÍCULO");
 		JFXDatePicker dateNasc = new JFXDatePicker();
 		Label showData = new Label();
 		Label showHora = new Label();
@@ -68,12 +70,12 @@ public class VisitaStage {
 		String dataAtual = dt.getDayOfMonth() + "/" + dt.getMonth() + "/" + dt.getYear();
 		String horaAtual = dt.getHour() + ":" + dt.getMinute();
 		
-		checkBoxFuncionario.getStyleClass().add("custom-jfx-check-box");
+		checkBoxVeiculo.getStyleClass().add("custom-jfx-check-box");
 		checkBoxVisita.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.setFont(Font.font(10));
 		checkBoxVisita.setFont(Font.font(10));
-		checkBoxFuncionario.setFont(Font.font(10));
+		checkBoxVeiculo.setFont(Font.font(10));
 		
 		btnSalvar.setButtonType(ButtonType.RAISED);
 		btnSalvar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
@@ -96,14 +98,16 @@ public class VisitaStage {
 		lblCadastroVisita.setPrefSize(700, 50);
 		checkBoxVisita.setTextFill(Color.BLACK);
 		checkBoxMorador.setTextFill(Color.BLACK);
-		checkBoxFuncionario.setTextFill(Color.BLACK);
+		checkBoxVeiculo.setTextFill(Color.BLACK);
 		checkBoxVisita.setUnCheckedColor(Color.BLACK);
 		checkBoxMorador.setUnCheckedColor(Color.BLACK);
-		checkBoxFuncionario.setUnCheckedColor(Color.BLACK);
+		checkBoxVeiculo.setUnCheckedColor(Color.BLACK);
 		checkBoxVisita.setCheckedColor(Color.RED);
 		checkBoxMorador.setCheckedColor(Color.BLUE);
-		checkBoxFuncionario.setCheckedColor(Color.BLACK);
-
+		checkBoxVeiculo.setCheckedColor(Color.BLACK);
+		
+		lblCadastro.setLayoutX(290);
+		lblCadastro.setLayoutY(70);
 		lblData.setLayoutX(50);
 		lblData.setLayoutY(190);
 		lblHora.setLayoutX(370);
@@ -122,11 +126,11 @@ public class VisitaStage {
 		lblObs.setLayoutY(370);
 		
 		checkBoxVisita.setLayoutX(210);
-		checkBoxVisita.setLayoutY(100);
+		checkBoxVisita.setLayoutY(110);
 		checkBoxMorador.setLayoutX(310);
-		checkBoxMorador.setLayoutY(100);
-		checkBoxFuncionario.setLayoutX(410);
-		checkBoxFuncionario.setLayoutY(100);
+		checkBoxMorador.setLayoutY(110);
+		checkBoxVeiculo.setLayoutX(410);
+		checkBoxVeiculo.setLayoutY(110);
 		
 		txtNome.setLayoutX(50);
 		txtNome.setLayoutY(270);
@@ -147,7 +151,7 @@ public class VisitaStage {
 
 		dateNasc.setLayoutX(50);
 		dateNasc.setLayoutY(330);
-		dateNasc.setDefaultColor(Color.valueOf("#311B92"));
+		dateNasc.setDefaultColor(Color.BLACK);
 		showData.setTextFill(Color.BLACK);
 		showHora.setTextFill(Color.BLACK);
 
@@ -157,9 +161,9 @@ public class VisitaStage {
 		showHora.setLayoutY(190);
 		
 
-		pane.getChildren().addAll(btnSalvar, btnCancelar, dateNasc, showData, showHora, txtNome, txtCpf, txtTel, txtLocal, txtObs, lblData, lblHora, lblNome,
+		pane.getChildren().addAll(lblCadastro, btnSalvar, btnCancelar, dateNasc, showData, showHora, txtNome, txtCpf, txtTel, txtLocal, txtObs, lblData, lblHora, lblNome,
 				lblCpf, lblNasc, lblTelefone, rippCVisita, lblLocal, lblObs, checkBoxVisita, checkBoxMorador,
-				checkBoxFuncionario);
+				checkBoxVeiculo);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();

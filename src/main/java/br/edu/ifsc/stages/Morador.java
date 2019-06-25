@@ -1,27 +1,31 @@
-package br.edu.ifsc.entities;
+package br.edu.ifsc.stages;
 
 import java.util.Date;
 
+import br.edu.ifsc.entities.PessoaFisica;
+
 public class Morador extends PessoaFisica {
 	private int apartamento;
-	private int bloco;
+	private char bloco;
 	private int qtdMoradores;
 	private String vagaGaragem;
 	private Date entrada;
 	private boolean menorIdade;
+	private String placaVeiculo;
 
-	public Morador(String nome, String cpf, Date dataNasc, String telefone, int apartamento, int bloco,
-			int qtdMoradores, String vagaGaragem, Date entrada, boolean menorIdade) {
+	public Morador(String nome, String cpf, Date dataNasc, String telefone, int apartamento, char bloco,
+			int qtdMoradores, String vagaGaragem, String placaCarro, Date entrada, boolean menorIdade) {
 		super(nome, cpf, dataNasc, telefone);
 		this.apartamento = apartamento;
 		this.bloco = bloco;
 		this.qtdMoradores = qtdMoradores;
 		this.vagaGaragem = vagaGaragem;
+		this.placaVeiculo = placaCarro;
 		this.entrada = entrada;
 		this.setMenorIdade(menorIdade);
 	}
 
-	public Morador(String nome, String cpf, Date dataNasc, String telefone, int apartamento, int bloco,
+	public Morador(String nome, String cpf, Date dataNasc, String telefone, int apartamento, char bloco,
 			int qtdMoradores, Date entrada, boolean menorIdade) {
 		super(nome, cpf, dataNasc, telefone);
 		this.apartamento = apartamento;
@@ -42,7 +46,7 @@ public class Morador extends PessoaFisica {
 		return bloco;
 	}
 
-	public void setBloco(int bloco) {
+	public void setBloco(char bloco) {
 		this.bloco = bloco;
 	}
 
@@ -58,6 +62,10 @@ public class Morador extends PessoaFisica {
 		return vagaGaragem;
 	}
 
+	public String getPlacaVeiculo() {
+		return placaVeiculo;
+	}
+	
 	public void setVagaGaragem(String vagaGaragem) {
 		this.vagaGaragem = vagaGaragem;
 	}
