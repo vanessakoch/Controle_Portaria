@@ -5,7 +5,7 @@ public class User {
 	private String pass;
 	private String department;
 	
-	public User(String name, String pass, String department) {
+	public User(String name, String pass) {
 		super();
 		this.name = name;
 		this.pass = pass;
