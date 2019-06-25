@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -61,7 +61,7 @@ public class VisitaStage {
 		JFXCheckBox checkBoxVisita = new JFXCheckBox("VISITANTE");
 		JFXCheckBox checkBoxMorador = new JFXCheckBox("MORADOR");
 		JFXCheckBox checkBoxFuncionario = new JFXCheckBox("FUNCIONÁRIO");
-		DatePicker dateNasc = new DatePicker();
+		JFXDatePicker dateNasc = new JFXDatePicker();
 		Label showData = new Label();
 		Label showHora = new Label();
 		LocalDateTime dt = LocalDateTime.now();
@@ -147,7 +147,7 @@ public class VisitaStage {
 
 		dateNasc.setLayoutX(50);
 		dateNasc.setLayoutY(330);
-		dateNasc.setStyle("-fx-background-color: BLACK");
+		dateNasc.setDefaultColor(Color.valueOf("#311B92"));
 		showData.setTextFill(Color.BLACK);
 		showHora.setTextFill(Color.BLACK);
 

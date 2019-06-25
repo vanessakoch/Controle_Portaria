@@ -3,6 +3,8 @@ package br.edu.ifsc.stages;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXColorPicker;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -65,8 +67,8 @@ public class MoradorStage {
 		JFXCheckBox checkBoxVisita = new JFXCheckBox("VISITANTE");
 		JFXCheckBox checkBoxMorador = new JFXCheckBox("MORADOR");
 		JFXCheckBox checkBoxFuncionario = new JFXCheckBox("FUNCIONÁRIO");
-		DatePicker dateEntrada = new DatePicker();
-		DatePicker dateNasc = new DatePicker();
+		JFXDatePicker dateEntrada = new JFXDatePicker();
+		JFXDatePicker dateNasc = new JFXDatePicker();
 		JFXToggleButton simNao = new JFXToggleButton();
 
 		checkBoxFuncionario.getStyleClass().add("custom-jfx-check-box");
@@ -158,12 +160,12 @@ public class MoradorStage {
 		dateEntrada.setLayoutX(150);
 		dateEntrada.setLayoutY(185);
 		dateEntrada.setPrefWidth(150);
-		dateEntrada.setStyle("-fx-background-color: BLACK");
 		dateNasc.setPrefWidth(150);
 		dateNasc.setLayoutX(370);
 		dateNasc.setLayoutY(185);
-		dateNasc.setStyle("-fx-background-color: BLACK");
 		simNao.setToggleColor(Color.DARKBLUE);
+		dateEntrada.setDefaultColor(Color.valueOf("#311B92"));
+		dateNasc.setDefaultColor(Color.valueOf("#311B92"));
 
 		pane.getChildren().addAll(lblNasc, dateNasc, simNao, lblMenorIdade, lblMoradores, lblBloco, txtMoradores,
 				txtBloco, btnSalvar, btnCancelar, dateEntrada, txtNome, txtCpf, txtTel, txtApartamento, txtVagaGaragem,
