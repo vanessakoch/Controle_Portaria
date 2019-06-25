@@ -8,19 +8,21 @@ public class Morador extends PessoaFisica {
 	private int qtdMoradores;
 	private String vagaGaragem;
 	private Date entrada;
+	private boolean menorIdade;
 
 	public Morador(String nome, String cpf, Date dataNasc, String telefone, int apartamento, int bloco,
-			int qtdMoradores, String vagaGaragem, Date entrada) {
+			int qtdMoradores, String vagaGaragem, Date entrada, boolean menorIdade) {
 		super(nome, cpf, dataNasc, telefone);
 		this.apartamento = apartamento;
 		this.bloco = bloco;
 		this.qtdMoradores = qtdMoradores;
 		this.vagaGaragem = vagaGaragem;
 		this.entrada = entrada;
+		this.setMenorIdade(menorIdade);
 	}
 
 	public Morador(String nome, String cpf, Date dataNasc, String telefone, int apartamento, int bloco,
-			int qtdMoradores, Date entrada) {
+			int qtdMoradores, Date entrada, boolean menorIdade) {
 		super(nome, cpf, dataNasc, telefone);
 		this.apartamento = apartamento;
 		this.bloco = bloco;
@@ -62,6 +64,14 @@ public class Morador extends PessoaFisica {
 
 	public Date getEntrada() {
 		return entrada;
+	}
+
+	public boolean isMenorIdade() {
+		return menorIdade;
+	}
+
+	public void setMenorIdade(boolean menorIdade) {
+		this.menorIdade = menorIdade;
 	}
 
 }
