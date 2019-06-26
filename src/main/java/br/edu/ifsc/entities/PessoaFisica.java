@@ -1,14 +1,12 @@
 package br.edu.ifsc.entities;
 
-import java.util.Date;
-
 public class PessoaFisica {
 	private String nome;
 	private String cpf;
-	private Date dataNasc;
+	private String dataNasc;
 	private String telefone;
 
-	public PessoaFisica(String nome, String cpf, Date dataNasc, String telefone) {
+	public PessoaFisica(String nome, String cpf, String dataNasc, String telefone) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
@@ -28,11 +26,11 @@ public class PessoaFisica {
 		return cpf;
 	}
 
-	public Date getDataNasc() {
+	public String getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNasc(Date dataNasc) {
+	public void setDataNasc(String dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 

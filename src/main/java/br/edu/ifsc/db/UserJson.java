@@ -19,8 +19,8 @@ public class UserJson implements UserInterface {
 	@Override
 	public List<User> getUsers() {
 		List<User> users = new ArrayList<User>();
-		users.add(new User("json1", "123", "Essa"));
-		users.add(new User("json2", "123", "Isso"));
+		users.add(new User("json1", "123"));
+		users.add(new User("json2", "123"));
 		return users;
 	}
 
