@@ -74,6 +74,7 @@ public class MoradoresStage {
 
 		treeTableView.setRoot(itemRoot);
 		treeTableView.setCenterShape(true);
+		
 		treeTableView.setEditable(true);
 		treeTableView.setShowRoot(true);
 		lblListaMoradores.setStyle("-fx-background-color: #212121;-fx-padding:20");
