@@ -7,10 +7,11 @@ public class Veiculo {
 	private String placa;
 	private String renavam;
 
-	public Veiculo(String marca, String modelo) {
+	public Veiculo(String marca, String modelo, String placa) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
+		this.placa = placa;
 	}
 
 	public Veiculo(String marca, String modelo, int ano, String placa, String renavam, PessoaFisica proprietario) {

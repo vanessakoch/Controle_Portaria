@@ -6,8 +6,6 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 
-import br.edu.ifsc.entities.PessoaFisica;
-import br.edu.ifsc.entities.Veiculo;
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -151,9 +149,9 @@ public class CadVeiculoStage {
 		stage.setResizable(false);
 		stage.show();
 
-		btnCancelar.setOnAction(e -> stage.close());;
-		
-		
+		btnCancelar.setOnAction(e -> stage.close());
+		;
+
 	}
 
 }

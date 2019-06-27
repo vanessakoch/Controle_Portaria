@@ -1,5 +1,8 @@
 package br.edu.ifsc.stages;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXCheckBox;
@@ -8,13 +11,18 @@ import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
+import br.edu.ifsc.entities.Morador;
+import br.edu.ifsc.exceptions.CadastroException;
+import br.edu.ifsc.util.DB;
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class CadMoradorStage {
 
@@ -184,10 +192,29 @@ public class CadMoradorStage {
 		dateNasc.setPrefWidth(150);
 		dateNasc.setLayoutX(370);
 		dateNasc.setLayoutY(185);
-		simNao.setToggleColor(Color.DARKBLUE);
+	
 		dateEntrada.setDefaultColor(Color.valueOf("#311B92"));
 		dateNasc.setDefaultColor(Color.valueOf("#311B92"));
-
+	
+		btnSalvar.setOnMouseClicked(e ->{
+			try {
+				DB.moradores.addMorador(txtNome.getText(), txtCpf.getText(), dateNasc.getPromptText().toString(), txtTel.getText(), 
+						Integer.parseInt(txtApartamento.getText()), txtBloco.getText(), Integer.parseInt(txtMoradores.getText()), 
+						txtVagaGaragem.getText(), dateEntrada.getPromptText(),
+						Boolean.parseBoolean(simNao.getText()));
+				stage.close();
+				showConfirmation();
+			}catch(Exception a){
+				try {
+					showError();
+					throw new CadastroException();
+				} catch (CadastroException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+		});
+		
 		pane.getChildren().addAll(lblCadastro,lblNasc, dateNasc, simNao, lblMenorIdade, lblMoradores, lblBloco, txtMoradores,
 				txtBloco, btnSalvar, btnCancelar, dateEntrada, txtNome, txtCpf, txtTel, txtApartamento, txtVagaGaragem,
 				lblData, lblNome, lblCpf, lblTelefone, rippCVisita, lblApartamento, lblVagaGaragem, checkBoxVisita,
@@ -197,6 +224,19 @@ public class CadMoradorStage {
 		stage.show();
 		
 		btnCancelar.setOnAction(e -> stage.close());;
+	}
+	private void showConfirmation() {
+		Alert dialogoAcerto = new Alert(Alert.AlertType.INFORMATION);
+		dialogoAcerto.initStyle(StageStyle.TRANSPARENT);
+		dialogoAcerto.setHeaderText("\t\t\tSALVO COM SUCESSO");
+		dialogoAcerto.showAndWait();
+	}
+	
+	private void showError() {
+		Alert dialogoAcerto = new Alert(Alert.AlertType.ERROR);
+		dialogoAcerto.initStyle(StageStyle.TRANSPARENT);
+		dialogoAcerto.setHeaderText("\t\t\tDADOS INCORRETOS");
+		dialogoAcerto.showAndWait();
 	}
 
 }

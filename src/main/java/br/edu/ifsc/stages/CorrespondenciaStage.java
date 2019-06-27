@@ -1,34 +1,21 @@
 package br.edu.ifsc.stages;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXProgressBar;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXSlider;
-import com.jfoenix.controls.JFXSlider.IndicatorPosition;
-import com.jfoenix.controls.JFXTabPane;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
-import com.jfoenix.controls.JFXToggleNode;
 import com.jfoenix.controls.JFXButton.ButtonType;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.util.Strings;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 public class CorrespondenciaStage {
 
@@ -119,7 +106,7 @@ public class CorrespondenciaStage {
 		radioNao.setSelectedColor(Color.BLUE);
 		lblEntregue.setLayoutX(50);
 		lblEntregue.setLayoutY(330);
-		
+
 		JFXButton btnSalvar = new JFXButton("SALVAR");
 		btnSalvar.setButtonType(ButtonType.RAISED);
 		btnSalvar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
@@ -128,17 +115,17 @@ public class CorrespondenciaStage {
 		btnSalvar.setLayoutX(270);
 		btnSalvar.setLayoutY(420);
 
-
-		pane.getChildren().addAll(btnSalvar,lblObs, txtObs, lblEntregue, radioNao, radioSim, txtBloco, lblBloco, lblAp, txtAp,
-				txtNome, lblNome, comboCorrespondencia, btnSair, lblListaCorrespondencias);
+		pane.getChildren().addAll(btnSalvar, lblObs, txtObs, lblEntregue, radioNao, radioSim, txtBloco, lblBloco, lblAp,
+				txtAp, txtNome, lblNome, comboCorrespondencia, btnSair, lblListaCorrespondencias);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
-		
+
 		btnSalvar.setOnMouseClicked(e -> showConfirmation());
 		btnSair.setOnMouseClicked(e -> stage.close());
-		
+
 	}
+
 	private void showConfirmation() {
 		Alert dialogoAcerto = new Alert(Alert.AlertType.INFORMATION);
 		dialogoAcerto.initStyle(StageStyle.TRANSPARENT);

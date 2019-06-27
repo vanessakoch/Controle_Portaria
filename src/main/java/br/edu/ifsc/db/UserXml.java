@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.edu.ifsc.entities.User;
 
-public class UserXml implements UserInterface {
+public class UserXml implements UserDBInterface {
 
 	@Override
 	public User getUser(String username) {

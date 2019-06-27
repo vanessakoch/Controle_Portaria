@@ -187,22 +187,22 @@ public class MenuStage {
 		bar.enqueue(new SnackbarEvent("Selecione uma opção"));
 
 		rippMoradores.setOnMouseClicked(e -> {
-		try {
-			new MoradoresStage(new Stage());
-			stage.close();
-		} catch (Exception finaliza1) {
-			finaliza1.printStackTrace();
-		}
-	});
+			try {
+				new MoradoresStage(new Stage());
+				stage.close();
+			} catch (Exception finaliza1) {
+				finaliza1.printStackTrace();
+			}
+		});
 
 		btnCadMorador.setOnMouseClicked(e -> new CadMoradorStage(new Stage()));
 
 		rippCar.setOnMouseClicked(e -> new CadVeiculoStage(new Stage()));
 
 		rippMural.setOnMouseClicked(e -> new MuralStage(new Stage()));
-		
+
 		rippVisit.setOnMouseClicked(e -> new CadVisitaStage(new Stage()));
-		
+
 		rippCorresp.setOnMouseClicked(e -> new CorrespondenciaStage(new Stage()));
 
 		btnSair.setOnMouseClicked(finaliza -> {

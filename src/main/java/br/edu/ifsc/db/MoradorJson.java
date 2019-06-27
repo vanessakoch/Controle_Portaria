@@ -13,7 +13,7 @@ public class MoradorJson implements MoradorDBInterface {
 	public Morador getMorador(String username) {
 		moradores = getMoradores();
 		for (Morador morador : moradores)
-			if (morador.getNome().contentEquals(username))
+			if (morador.getNome().equals(username))
 				return morador;
 		return null;
 	}

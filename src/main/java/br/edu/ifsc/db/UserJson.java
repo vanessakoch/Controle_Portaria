@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.edu.ifsc.entities.User;
 
-public class UserJson implements UserInterface {
+public class UserJson implements UserDBInterface {
 
 	@Override
 	public User getUser(String username) {
