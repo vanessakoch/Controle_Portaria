@@ -176,8 +176,8 @@ public class CadVisitaStage {
 		showData.setLayoutX(160);
 		showData.setLayoutY(190);
 		showHora.setLayoutX(460);
-		showHora.setLayoutY(190);
-
+		showHora.setLayoutY(190);		
+		
 		pane.getChildren().addAll(lblCadastro, btnSalvar, btnCancelar, dateNasc, showData, showHora, txtNome, txtCpf,
 				txtTel, txtLocal, txtObs, lblData, lblHora, lblNome, lblCpf, lblNasc, lblTelefone, rippCVisita,
 				lblLocal, lblObs, checkBoxVisita, checkBoxMorador, checkBoxVeiculo);

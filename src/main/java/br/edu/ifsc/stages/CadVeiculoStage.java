@@ -6,13 +6,17 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 
+import br.edu.ifsc.exceptions.CadastroException;
+import br.edu.ifsc.util.DB;
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class CadVeiculoStage {
 
@@ -150,8 +154,45 @@ public class CadVeiculoStage {
 		stage.show();
 
 		btnCancelar.setOnAction(e -> stage.close());
-		;
+		
+		btnSalvar.setOnMouseClicked(e -> {
+			if(txtPlaca.getText().equals(null) || txtMarca.getText().equals(null) || txtModelo.equals(null)) {
+				showError();
+				try {
+					throw new CadastroException();
+				} catch (CadastroException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			try {
+				DB.veiculos.addVeiculo(txtMarca.getText(), txtModelo.getText(), txtPlaca.getText());
+				stage.close();
+				showConfirmation();
+			} catch (Exception a) {
+				try {
+					showError();
+					throw new CadastroException();
+				} catch (CadastroException e1) {
+					e1.printStackTrace();
+				}
+			}
 
+		});
+
+	}
+	private void showConfirmation() {
+		Alert dialogoAcerto = new Alert(Alert.AlertType.INFORMATION);
+		dialogoAcerto.initStyle(StageStyle.TRANSPARENT);
+		dialogoAcerto.setHeaderText("\t\t\tSALVO COM SUCESSO");
+		dialogoAcerto.showAndWait();
+	}
+
+	private void showError() {
+		Alert dialogoError = new Alert(Alert.AlertType.ERROR);
+		dialogoError.initStyle(StageStyle.TRANSPARENT);
+		dialogoError.setHeaderText("\t\t\tDADOS INCORRETOS");
+		dialogoError.showAndWait();
 	}
 
 }
