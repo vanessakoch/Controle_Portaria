@@ -25,15 +25,9 @@ public class MoradorJson implements MoradorDBInterface {
 			moradores.add(new Morador("Pedro da Silva", "00000014503", "15/10/1992", "2535559898", 140, "4B", 5, "10/10/2018", false));
 			moradores.add(new Morador("Joao da Silva", "11111111111", "15/10/1970", "4725548789", 101, "1A", 1, "10/01/2017", true));
 
-
-	public ObservableList<Morador> getMoradores() {
-		if (moradores == null) {
-			moradores = FXCollections.observableArrayList(new ArrayList<Morador>());
-			moradores.add(new Morador("A", "B", null, null, 0, null, 0, null, false));
 		}
 		return moradores;
 	}
-
 	@Override
 	public void addMorador(String nome, String cpf, String dataNasc, String telefone, int apartamento, String bloco,
 			int qtdMoradores, String vagaGaragem, String entrada, boolean menorIdade) {
