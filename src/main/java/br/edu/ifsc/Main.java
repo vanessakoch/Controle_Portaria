@@ -18,6 +18,6 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		new MenuStage(primaryStage);
+		new MoradoresStage(primaryStage);
 	}
 }
