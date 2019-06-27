@@ -13,7 +13,7 @@ public class UserXml implements UserDBInterface {
 		if (username.equals("xml"))
 			return new User("xml", "123");
 		if (username.equals("admin"))
-			return new User("admin","123");
+			return new User("admin", "123");
 		else
 			return null;
 	}

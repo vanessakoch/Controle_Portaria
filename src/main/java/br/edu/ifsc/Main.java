@@ -8,6 +8,7 @@ import br.edu.ifsc.stages.CadMoradorStage;
 import br.edu.ifsc.stages.CadVeiculoStage;
 import br.edu.ifsc.stages.CadVisitaStage;
 import br.edu.ifsc.stages.CorrespondenciaStage;
+import br.edu.ifsc.stages.LiberarEntradaStage;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -19,6 +20,6 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		new MoradoresStage(primaryStage);
+		new MenuStage(primaryStage);
 	}
 }

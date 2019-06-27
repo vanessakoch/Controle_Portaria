@@ -59,7 +59,7 @@ public class MuralStage {
 		btnSair.setStyle("-fx-background-color: WHITE; -fx-cursor: hand");
 		btnSair.setTextFill(Color.BLACK);
 		btnSair.setPrefSize(100, 40);
-		
+
 		btnSair.setOnMouseClicked(finaliza -> stage.close());
 
 		btnAssembleia.setOnAction(action -> {

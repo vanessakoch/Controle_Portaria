@@ -51,6 +51,4 @@ public class Veiculo {
 		return renavam;
 	}
 
-	
-
 }

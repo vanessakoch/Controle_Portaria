@@ -3,7 +3,7 @@ package br.edu.ifsc.entities;
 public class User {
 	private String name;
 	private String pass;
-	
+
 	public User(String name, String pass) {
 		super();
 		this.name = name;

@@ -9,11 +9,11 @@ public class UserJson implements UserDBInterface {
 
 	@Override
 	public User getUser(String username) {
-		
+
 		if (username.equals("json"))
 			return new User("json", "123");
 		if (username.equals("admin"))
-			return new User("admin","123");
+			return new User("admin", "123");
 		else
 			return null;
 	}

@@ -1,6 +1,5 @@
 package br.edu.ifsc.entities;
 
-
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -54,6 +53,7 @@ public class Morador extends PessoaFisica {
 	public SimpleStringProperty vagaGaragemProperty() {
 		return vagaGaragem;
 	}
+
 	public SimpleStringProperty entradaProperty() {
 		return entrada;
 	}
@@ -71,7 +71,8 @@ public class Morador extends PessoaFisica {
 	}
 
 	public void setBloco(String bloco) {
-		this.bloco.set(bloco);;
+		this.bloco.set(bloco);
+		;
 	}
 
 	public int getQtdMoradores() {
@@ -101,6 +102,5 @@ public class Morador extends PessoaFisica {
 	public void setMenorIdade(boolean menorIdade) {
 		this.menorIdade.set(menorIdade);
 	}
-	
 
 }

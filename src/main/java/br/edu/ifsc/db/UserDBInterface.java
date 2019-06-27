@@ -9,4 +9,3 @@ public interface UserDBInterface {
 
 	public List<User> getUsers();
 }
-

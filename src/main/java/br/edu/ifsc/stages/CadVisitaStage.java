@@ -48,7 +48,7 @@ public class CadVisitaStage {
 		lblLocal.setTextFill(Color.BLACK);
 		lblObs.setTextFill(Color.BLACK);
 		lblCadastro.setTextFill(Color.BLACK);
-		
+
 		JFXButton btnSalvar = new JFXButton("SALVAR");
 		JFXButton btnCancelar = new JFXButton("CANCELAR");
 
@@ -69,24 +69,24 @@ public class CadVisitaStage {
 		LocalDateTime dt = LocalDateTime.now();
 		String dataAtual = dt.getDayOfMonth() + "/" + dt.getMonth() + "/" + dt.getYear();
 		String horaAtual = dt.getHour() + ":" + dt.getMinute();
-		
+
 		checkBoxVeiculo.getStyleClass().add("custom-jfx-check-box");
 		checkBoxVisita.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.setFont(Font.font(10));
 		checkBoxVisita.setFont(Font.font(10));
 		checkBoxVeiculo.setFont(Font.font(10));
-		
+
 		btnSalvar.setButtonType(ButtonType.RAISED);
 		btnSalvar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
 		btnSalvar.setTextFill(Color.WHITE);
 		btnSalvar.setPrefSize(100, 40);
-		
+
 		btnCancelar.setButtonType(ButtonType.RAISED);
 		btnCancelar.setStyle("-fx-background-color: WHITE; -fx-cursor: hand");
 		btnCancelar.setTextFill(Color.BLACK);
 		btnCancelar.setPrefSize(100, 40);
-		
+
 		btnSalvar.setLayoutX(370);
 		btnSalvar.setLayoutY(460);
 		btnCancelar.setLayoutX(220);
@@ -106,7 +106,7 @@ public class CadVisitaStage {
 		checkBoxVisita.setCheckedColor(Color.RED);
 		checkBoxMorador.setCheckedColor(Color.BLUE);
 		checkBoxVeiculo.setCheckedColor(Color.BLACK);
-		
+
 		checkBoxMorador.setOnMousePressed(e -> {
 			try {
 				new CadMoradorStage(new Stage());
@@ -123,7 +123,7 @@ public class CadVisitaStage {
 				finaliza1.printStackTrace();
 			}
 		});
-		
+
 		lblCadastro.setLayoutX(290);
 		lblCadastro.setLayoutY(70);
 		lblData.setLayoutX(50);
@@ -142,14 +142,14 @@ public class CadVisitaStage {
 		lblLocal.setLayoutY(370);
 		lblObs.setLayoutX(370);
 		lblObs.setLayoutY(370);
-		
+
 		checkBoxVisita.setLayoutX(210);
 		checkBoxVisita.setLayoutY(110);
 		checkBoxMorador.setLayoutX(310);
 		checkBoxMorador.setLayoutY(110);
 		checkBoxVeiculo.setLayoutX(410);
 		checkBoxVeiculo.setLayoutY(110);
-		
+
 		txtNome.setLayoutX(50);
 		txtNome.setLayoutY(270);
 		txtCpf.setLayoutX(370);
@@ -177,17 +177,20 @@ public class CadVisitaStage {
 		showData.setLayoutY(190);
 		showHora.setLayoutX(460);
 		showHora.setLayoutY(190);
-		
 
-		pane.getChildren().addAll(lblCadastro, btnSalvar, btnCancelar, dateNasc, showData, showHora, txtNome, txtCpf, txtTel, txtLocal, txtObs, lblData, lblHora, lblNome,
-				lblCpf, lblNasc, lblTelefone, rippCVisita, lblLocal, lblObs, checkBoxVisita, checkBoxMorador,
-				checkBoxVeiculo);
+		pane.getChildren().addAll(lblCadastro, btnSalvar, btnCancelar, dateNasc, showData, showHora, txtNome, txtCpf,
+				txtTel, txtLocal, txtObs, lblData, lblHora, lblNome, lblCpf, lblNasc, lblTelefone, rippCVisita,
+				lblLocal, lblObs, checkBoxVisita, checkBoxMorador, checkBoxVeiculo);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
-	
-		btnCancelar.setOnAction(e -> stage.close());;
 
+		btnCancelar.setOnAction(e -> stage.close());
+
+		btnSalvar.setOnMouseClicked(e -> {
+			new LiberarEntradaStage(new Stage(), txtNome.getText());
+			stage.close();
+		});
 	}
 
 }

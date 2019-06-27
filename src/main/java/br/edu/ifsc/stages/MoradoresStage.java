@@ -3,12 +3,9 @@ package br.edu.ifsc.stages;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 
-import br.edu.ifsc.db.MoradorJson;
 import br.edu.ifsc.entities.Morador;
 import br.edu.ifsc.util.DB;
 import br.edu.ifsc.util.Strings;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -19,9 +16,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
-import javafx.util.converter.BooleanStringConverter;
-
 import javafx.util.converter.IntegerStringConverter;
 
 public class MoradoresStage {
@@ -56,7 +50,6 @@ public class MoradoresStage {
 		nomeCol.setMinWidth(200);
 		cpfCol.setCellValueFactory(new PropertyValueFactory<Morador, String>("cpf"));
 		cpfCol.setMinWidth(150);
-
 		telefoneCol.setCellValueFactory(new PropertyValueFactory<Morador, String>("telefone"));
 		telefoneCol.setCellFactory(TextFieldTableCell.forTableColumn());
 		telefoneCol.setMinWidth(120);

@@ -8,7 +8,6 @@ public interface VeiculoDBInterface {
 	public Veiculo getVeiculo(String placa);
 
 	public List<Veiculo> getVeiculos();
-	
+
 	public void addVeiculo(String marca, String modelo, String placa);
 }
-

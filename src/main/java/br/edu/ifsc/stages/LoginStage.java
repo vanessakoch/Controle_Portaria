@@ -79,7 +79,7 @@ public class LoginStage {
 		dbSource.setOnAction(e -> changeDB(dbSource.getSelectionModel().getSelectedItem()));
 
 		btnEntrar.setOnMouseClicked(e -> {
-			if(txtUser.getText().isEmpty() && txtPass.getText().isEmpty()) {
+			if (txtUser.getText().isEmpty() && txtPass.getText().isEmpty()) {
 				showLoginError();
 			}
 			try {
@@ -90,8 +90,6 @@ public class LoginStage {
 
 			}
 		});
-		
-		
 
 		pane.getChildren().addAll(btnEntrar, txtUser, txtPass, dbSource, imageView);
 		stage.setTitle(Strings.appTitle);
@@ -133,15 +131,13 @@ public class LoginStage {
 				showLoginError();
 				return;
 			}
-		}
-		catch (NullPointerException ex) {
+		} catch (NullPointerException ex) {
 			throw new DBException();
 		}
 		try {
 			new MenuStage(new Stage());
 			stage.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

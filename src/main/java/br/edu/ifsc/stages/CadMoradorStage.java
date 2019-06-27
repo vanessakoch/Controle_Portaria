@@ -1,8 +1,5 @@
 package br.edu.ifsc.stages;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXCheckBox;
@@ -11,7 +8,6 @@ import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
-import br.edu.ifsc.entities.Morador;
 import br.edu.ifsc.exceptions.CadastroException;
 import br.edu.ifsc.util.DB;
 import br.edu.ifsc.util.Strings;
@@ -59,7 +55,7 @@ public class CadMoradorStage {
 		lblMoradores.setTextFill(Color.BLACK);
 		lblMenorIdade.setTextFill(Color.BLACK);
 		lblCadastro.setTextFill(Color.BLACK);
-		
+
 		JFXButton btnSalvar = new JFXButton("SALVAR");
 		JFXButton btnCancelar = new JFXButton("CANCELAR");
 
@@ -87,7 +83,7 @@ public class CadMoradorStage {
 		checkBoxMorador.setSelected(true);
 		checkBoxVisita.setFont(Font.font(10));
 		checkBoxVeiculo.setFont(Font.font(10));
-		
+
 		checkBoxVisita.setOnMousePressed(e -> {
 			try {
 				new CadVisitaStage(new Stage());
@@ -96,7 +92,7 @@ public class CadMoradorStage {
 				finaliza1.printStackTrace();
 			}
 		});
-		
+
 		checkBoxVeiculo.setOnMousePressed(e -> {
 			try {
 				new CadVeiculoStage(new Stage());
@@ -105,7 +101,7 @@ public class CadMoradorStage {
 				finaliza1.printStackTrace();
 			}
 		});
-		
+
 		btnSalvar.setButtonType(ButtonType.RAISED);
 		btnSalvar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
 		btnSalvar.setTextFill(Color.WHITE);
@@ -192,19 +188,19 @@ public class CadMoradorStage {
 		dateNasc.setPrefWidth(150);
 		dateNasc.setLayoutX(370);
 		dateNasc.setLayoutY(185);
-	
+
 		dateEntrada.setDefaultColor(Color.valueOf("#311B92"));
 		dateNasc.setDefaultColor(Color.valueOf("#311B92"));
-	
-		btnSalvar.setOnMouseClicked(e ->{
+
+		btnSalvar.setOnMouseClicked(e -> {
 			try {
-				DB.moradores.addMorador(txtNome.getText(), txtCpf.getText(), dateNasc.getPromptText().toString(), txtTel.getText(), 
-						Integer.parseInt(txtApartamento.getText()), txtBloco.getText(), Integer.parseInt(txtMoradores.getText()), 
-						txtVagaGaragem.getText(), dateEntrada.getPromptText(),
+				DB.moradores.addMorador(txtNome.getText(), txtCpf.getText(), dateNasc.getPromptText().toString(),
+						txtTel.getText(), Integer.parseInt(txtApartamento.getText()), txtBloco.getText(),
+						Integer.parseInt(txtMoradores.getText()), txtVagaGaragem.getText(), dateEntrada.getPromptText(),
 						Boolean.parseBoolean(simNao.getText()));
 				stage.close();
 				showConfirmation();
-			}catch(Exception a){
+			} catch (Exception a) {
 				try {
 					showError();
 					throw new CadastroException();
@@ -212,31 +208,33 @@ public class CadMoradorStage {
 					e1.printStackTrace();
 				}
 			}
-			
+
 		});
-		
-		pane.getChildren().addAll(lblCadastro,lblNasc, dateNasc, simNao, lblMenorIdade, lblMoradores, lblBloco, txtMoradores,
-				txtBloco, btnSalvar, btnCancelar, dateEntrada, txtNome, txtCpf, txtTel, txtApartamento, txtVagaGaragem,
-				lblData, lblNome, lblCpf, lblTelefone, rippCVisita, lblApartamento, lblVagaGaragem, checkBoxVisita,
-				checkBoxMorador, checkBoxVeiculo);
+
+		pane.getChildren().addAll(lblCadastro, lblNasc, dateNasc, simNao, lblMenorIdade, lblMoradores, lblBloco,
+				txtMoradores, txtBloco, btnSalvar, btnCancelar, dateEntrada, txtNome, txtCpf, txtTel, txtApartamento,
+				txtVagaGaragem, lblData, lblNome, lblCpf, lblTelefone, rippCVisita, lblApartamento, lblVagaGaragem,
+				checkBoxVisita, checkBoxMorador, checkBoxVeiculo);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
-		
-		btnCancelar.setOnAction(e -> stage.close());;
+
+		btnCancelar.setOnAction(e -> stage.close());
+
 	}
+
 	private void showConfirmation() {
 		Alert dialogoAcerto = new Alert(Alert.AlertType.INFORMATION);
 		dialogoAcerto.initStyle(StageStyle.TRANSPARENT);
 		dialogoAcerto.setHeaderText("\t\t\tSALVO COM SUCESSO");
 		dialogoAcerto.showAndWait();
 	}
-	
+
 	private void showError() {
-		Alert dialogoAcerto = new Alert(Alert.AlertType.ERROR);
-		dialogoAcerto.initStyle(StageStyle.TRANSPARENT);
-		dialogoAcerto.setHeaderText("\t\t\tDADOS INCORRETOS");
-		dialogoAcerto.showAndWait();
+		Alert dialogoError = new Alert(Alert.AlertType.ERROR);
+		dialogoError.initStyle(StageStyle.TRANSPARENT);
+		dialogoError.setHeaderText("\t\t\tDADOS INCORRETOS");
+		dialogoError.showAndWait();
 	}
 
 }

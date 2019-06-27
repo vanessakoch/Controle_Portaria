@@ -15,5 +15,4 @@ public class DB {
 	public static MoradorDBInterface moradores = new MoradorJson();
 	public static VeiculoDBInterface veiculos = new VeiculoJson();
 
-
 }
