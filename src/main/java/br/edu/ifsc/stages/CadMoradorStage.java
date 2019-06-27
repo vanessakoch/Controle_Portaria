@@ -76,9 +76,28 @@ public class CadMoradorStage {
 		checkBoxVisita.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.getStyleClass().add("custom-jfx-check-box");
 		checkBoxMorador.setFont(Font.font(10));
+		checkBoxMorador.setSelected(true);
 		checkBoxVisita.setFont(Font.font(10));
 		checkBoxVeiculo.setFont(Font.font(10));
-
+		
+		checkBoxVisita.setOnMousePressed(e -> {
+			try {
+				new CadVisitaStage(new Stage());
+				stage.close();
+			} catch (Exception finaliza1) {
+				finaliza1.printStackTrace();
+			}
+		});
+		
+		checkBoxVeiculo.setOnMousePressed(e -> {
+			try {
+				new CadVeiculoStage(new Stage());
+				stage.close();
+			} catch (Exception finaliza1) {
+				finaliza1.printStackTrace();
+			}
+		});
+		
 		btnSalvar.setButtonType(ButtonType.RAISED);
 		btnSalvar.setStyle("-fx-background-color: #C2185B; -fx-cursor: hand");
 		btnSalvar.setTextFill(Color.WHITE);
@@ -176,6 +195,8 @@ public class CadMoradorStage {
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
+		
+		btnCancelar.setOnAction(e -> stage.close());;
 	}
 
 }

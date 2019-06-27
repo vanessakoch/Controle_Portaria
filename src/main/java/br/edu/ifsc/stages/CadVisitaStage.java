@@ -96,6 +96,7 @@ public class CadVisitaStage {
 		lblCadastroVisita.setStyle("-fx-background-color: #212121;-fx-padding:20");
 		lblCadastroVisita.setTextFill(Color.WHITE);
 		lblCadastroVisita.setPrefSize(700, 50);
+		checkBoxVisita.setSelected(true);
 		checkBoxVisita.setTextFill(Color.BLACK);
 		checkBoxMorador.setTextFill(Color.BLACK);
 		checkBoxVeiculo.setTextFill(Color.BLACK);
@@ -105,6 +106,23 @@ public class CadVisitaStage {
 		checkBoxVisita.setCheckedColor(Color.RED);
 		checkBoxMorador.setCheckedColor(Color.BLUE);
 		checkBoxVeiculo.setCheckedColor(Color.BLACK);
+		
+		checkBoxMorador.setOnMousePressed(e -> {
+			try {
+				new CadMoradorStage(new Stage());
+				stage.close();
+			} catch (Exception finaliza1) {
+				finaliza1.printStackTrace();
+			}
+		});
+		checkBoxVeiculo.setOnMousePressed(e -> {
+			try {
+				new CadVeiculoStage(new Stage());
+				stage.close();
+			} catch (Exception finaliza1) {
+				finaliza1.printStackTrace();
+			}
+		});
 		
 		lblCadastro.setLayoutX(290);
 		lblCadastro.setLayoutY(70);
@@ -167,6 +185,9 @@ public class CadVisitaStage {
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
+	
+		btnCancelar.setOnAction(e -> stage.close());;
+
 	}
 
 }

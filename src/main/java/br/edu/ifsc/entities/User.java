@@ -3,7 +3,6 @@ package br.edu.ifsc.entities;
 public class User {
 	private String name;
 	private String pass;
-	private String department;
 	
 	public User(String name, String pass) {
 		super();
@@ -25,14 +24,6 @@ public class User {
 
 	public void setPass(String pass) {
 		this.pass = pass;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
 	}
 
 }

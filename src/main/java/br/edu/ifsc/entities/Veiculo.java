@@ -6,7 +6,12 @@ public class Veiculo {
 	private int ano;
 	private String placa;
 	private String renavam;
-	private PessoaFisica proprietario;
+
+	public Veiculo(String marca, String modelo) {
+		super();
+		this.marca = marca;
+		this.modelo = modelo;
+	}
 
 	public Veiculo(String marca, String modelo, int ano, String placa, String renavam, PessoaFisica proprietario) {
 		super();
@@ -15,7 +20,14 @@ public class Veiculo {
 		this.ano = ano;
 		this.placa = placa;
 		this.renavam = renavam;
-		this.proprietario = proprietario;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
 
 	public String getMarca() {
@@ -38,12 +50,6 @@ public class Veiculo {
 		return renavam;
 	}
 
-	public PessoaFisica getProprietario() {
-		return proprietario;
-	}
-
-	public void setProprietario(PessoaFisica proprietario) {
-		this.proprietario = proprietario;
-	}
+	
 
 }

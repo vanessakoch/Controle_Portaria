@@ -1,5 +1,6 @@
 package br.edu.ifsc.entities;
 
+
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -100,5 +101,6 @@ public class Morador extends PessoaFisica {
 	public void setMenorIdade(boolean menorIdade) {
 		this.menorIdade.set(menorIdade);
 	}
+	
 
 }

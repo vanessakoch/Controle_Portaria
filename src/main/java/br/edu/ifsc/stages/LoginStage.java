@@ -133,12 +133,12 @@ public class LoginStage {
 			throw new DBException();
 		}
 		try {
-			new MenuStage(new Stage(), txtUser.getText());
+			new MenuStage(new Stage());
+			stage.close();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		stage.close();
 	}
 
 	private void showLoginError() {

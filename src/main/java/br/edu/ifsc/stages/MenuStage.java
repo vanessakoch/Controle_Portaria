@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class MenuStage {
 
-	public MenuStage(Stage stage, String username) {
+	public MenuStage(Stage stage) {
 
 		AnchorPane pane = new AnchorPane();
 		pane.setPrefSize(900, 500);
@@ -26,7 +26,7 @@ public class MenuStage {
 		pane.setStyle("-fx-background-color: #757575;");
 
 		JFXListView<JFXButton> list = new JFXListView<JFXButton>();
-		JFXButton btnArquivo = new JFXButton("ARQUIVOS / DOCUMENTOS");
+		JFXButton btnCadMorador = new JFXButton("CADASTRAR MORADOR");
 		JFXButton btnLeitura = new JFXButton("CONFIGURAR LEITURAS");
 		JFXButton btnDocumento = new JFXButton("DOCUMENTOS EMITIDOS");
 		JFXButton btnCondominio = new JFXButton("EDITAR CONDOMÍNIO");
@@ -39,7 +39,7 @@ public class MenuStage {
 		JFXButton btnAjuda = new JFXButton("AJUDA - SUPORTE");
 		JFXButton btnSair = new JFXButton("SAIR");
 
-		btnArquivo.setPrefSize(220, 25);
+		btnCadMorador.setPrefSize(220, 25);
 		btnLeitura.setPrefSize(220, 25);
 		btnDocumento.setPrefSize(220, 25);
 		btnCondominio.setPrefSize(220, 25);
@@ -68,36 +68,31 @@ public class MenuStage {
 		btnAgenda.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
 		btnRelatorio.setButtonType(ButtonType.RAISED);
 		btnRelatorio.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
-		btnArquivo.setButtonType(ButtonType.RAISED);
-		btnArquivo.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
+		btnCadMorador.setButtonType(ButtonType.RAISED);
+		btnCadMorador.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
 		btnLeitura.setButtonType(ButtonType.RAISED);
 		btnLeitura.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
 		btnDocumento.setButtonType(ButtonType.RAISED);
 		btnDocumento.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
 		btnCondominio.setButtonType(ButtonType.RAISED);
 		btnCondominio.setStyle("-fx-background-color: #212121; -fx-cursor: hand");
-		
-		list.getItems().addAll(btnArquivo, btnLeitura, btnDocumento, btnCondominio, btnVagas, btnAgenda, btnRelatorio,
-				btnUnidade, btnEventos, btnConfig, btnAjuda, btnSair);
+
+		list.getItems().addAll(btnCadMorador, btnLeitura, btnDocumento, btnCondominio, btnVagas, btnAgenda,
+				btnRelatorio, btnUnidade, btnEventos, btnConfig, btnAjuda, btnSair);
 		list.setStyle("-fx-background-color: #212121 ; -fx-cursor: hand; -fx-base: #212121;");
 		list.setPrefHeight(570);
 		list.setLayoutY(70);
 		list.setLayoutX(10);
 
 		btnSair.setTextFill(Color.BLACK);
-		
-		Label lblUsuario = new Label("Bem vindo(a) " + username);
-		lblUsuario.setTextFill(Color.WHITE);
-		lblUsuario.setLayoutX(680);
-		lblUsuario.setLayoutY(60);
-	
+
 		Label lblVisit = new Label("REGISTRAR VISITANTE");
-		lblVisit.setStyle("-fx-background-color: #00ACC1;-fx-padding:20");
+		lblVisit.setStyle("-fx-background-color: #00ACC1;-fx-padding:20;-fx-cursor: hand");
 		lblVisit.setTextFill(Color.WHITE);
 		JFXRippler rippVisit = new JFXRippler(lblVisit);
 
 		Label lblCar = new Label("REGISTRAR VEÍCULO");
-		lblCar.setStyle("-fx-background-color: #F9A825;-fx-padding:20");
+		lblCar.setStyle("-fx-background-color: #F9A825;-fx-padding:20;-fx-cursor: hand");
 		lblCar.setTextFill(Color.WHITE);
 		JFXRippler rippCar = new JFXRippler(lblCar);
 
@@ -107,7 +102,7 @@ public class MenuStage {
 		JFXRippler rippKey = new JFXRippler(lblKey);
 
 		Label lblMural = new Label("MURAL");
-		lblMural.setStyle("-fx-background-color: #E53935;-fx-padding:20");
+		lblMural.setStyle("-fx-background-color: #E53935;-fx-padding:20;-fx-cursor: hand");
 		lblMural.setTextFill(Color.WHITE);
 		JFXRippler rippMural = new JFXRippler(lblMural);
 
@@ -127,7 +122,7 @@ public class MenuStage {
 		JFXRippler rippCorresp = new JFXRippler(lblCorrespondencia);
 
 		Label lblMoradores = new Label("LISTA DE MORADORES");
-		lblMoradores.setStyle("-fx-background-color: #E65100;-fx-padding:20");
+		lblMoradores.setStyle("-fx-background-color: #E65100;-fx-padding:20;-fx-cursor: hand");
 		lblMoradores.setTextFill(Color.WHITE);
 		JFXRippler rippMoradores = new JFXRippler(lblMoradores);
 
@@ -191,30 +186,34 @@ public class MenuStage {
 		JFXSnackbar bar = new JFXSnackbar(pane);
 		bar.enqueue(new SnackbarEvent("Selecione uma opção"));
 
-//		rippVisit.setOnMouseClicked(e->{
-//			
-//		});
-//		
+		rippMoradores.setOnMouseClicked(e -> {
+		try {
+			new MoradoresStage(new Stage());
+			stage.close();
+		} catch (Exception finaliza1) {
+			finaliza1.printStackTrace();
+		}
+	});
+
+		btnCadMorador.setOnMouseClicked(e -> new CadMoradorStage(new Stage()));
+
+		rippCar.setOnMouseClicked(e -> new CadVeiculoStage(new Stage()));
+
+		rippMural.setOnMouseClicked(e -> new MuralStage(new Stage()));
 		
+		rippVisit.setOnMouseClicked(e -> new CadVisitaStage(new Stage()));
+
 		btnSair.setOnMouseClicked(finaliza -> {
 			try {
 				new LoginStage(new Stage());
+				stage.close();
 			} catch (Exception finaliza1) {
 				finaliza1.printStackTrace();
 			}
-			stage.close();
 		});
 
-		btnSair.setOnKeyPressed(e -> {
-			try {
-				new LoginStage(new Stage());
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-		});
-
-		pane.getChildren().addAll(lblUsuario, rippTitulo, list, rippVisit, rippCar, rippKey, rippMural, rippLost,
-				rippAssembleia, rippCorresp, rippMoradores, rippPhone, rippMonitor);
+		pane.getChildren().addAll(rippTitulo, list, rippVisit, rippCar, rippKey, rippMural, rippLost, rippAssembleia,
+				rippCorresp, rippMoradores, rippPhone, rippMonitor);
 		stage.setTitle(Strings.appTitle);
 		stage.setResizable(false);
 		stage.show();
