@@ -117,7 +117,7 @@ public class MenuStage {
 		JFXRippler rippAssembleia = new JFXRippler(lblAssembleia);
 
 		Label lblCorrespondencia = new Label("CORRESPONDÊNCIAS");
-		lblCorrespondencia.setStyle("-fx-background-color: #A1887F;-fx-padding:20");
+		lblCorrespondencia.setStyle("-fx-background-color: #A1887F;-fx-padding:20;-fx-cursor: hand");
 		lblCorrespondencia.setTextFill(Color.WHITE);
 		JFXRippler rippCorresp = new JFXRippler(lblCorrespondencia);
 
@@ -202,6 +202,8 @@ public class MenuStage {
 		rippMural.setOnMouseClicked(e -> new MuralStage(new Stage()));
 		
 		rippVisit.setOnMouseClicked(e -> new CadVisitaStage(new Stage()));
+		
+		rippCorresp.setOnMouseClicked(e -> new CorrespondenciaStage(new Stage()));
 
 		btnSair.setOnMouseClicked(finaliza -> {
 			try {

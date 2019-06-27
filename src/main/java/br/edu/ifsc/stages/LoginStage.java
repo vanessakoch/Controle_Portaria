@@ -22,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginStage {
 	private JFXButton btnEntrar;
@@ -78,6 +79,9 @@ public class LoginStage {
 		dbSource.setOnAction(e -> changeDB(dbSource.getSelectionModel().getSelectedItem()));
 
 		btnEntrar.setOnMouseClicked(e -> {
+			if(txtUser.getText().isEmpty() && txtPass.getText().isEmpty()) {
+				showLoginError();
+			}
 			try {
 				login(txtUser.getText(), txtPass.getText(), stage);
 			} catch (LoginException ex) {
@@ -86,6 +90,8 @@ public class LoginStage {
 
 			}
 		});
+		
+		
 
 		pane.getChildren().addAll(btnEntrar, txtUser, txtPass, dbSource, imageView);
 		stage.setTitle(Strings.appTitle);
@@ -108,7 +114,6 @@ public class LoginStage {
 	}
 
 	private void login(String username, String pass, Stage stage) throws LoginException, DBException {
-
 		try {
 			withCurrentDB(username, pass, stage);
 		} catch (DBException exception) {
@@ -142,9 +147,10 @@ public class LoginStage {
 	}
 
 	private void showLoginError() {
-		Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-		dialogoErro.setTitle("ERRO");
+		Alert dialogoErro = new Alert(Alert.AlertType.WARNING);
+		dialogoErro.initStyle(StageStyle.TRANSPARENT);
 		dialogoErro.setHeaderText("\t\t\tDADOS INCORRETOS");
+		dialogoErro.setContentText("\t\t\t\tTENTE NOVAMENTE");
 		dialogoErro.showAndWait();
 	}
 }

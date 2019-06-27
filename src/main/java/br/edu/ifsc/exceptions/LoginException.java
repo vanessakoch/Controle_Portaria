@@ -5,7 +5,7 @@ public class LoginException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public LoginException() {
-		super("Deu pau no login");
-		System.out.println("Criei a exceção");
+		super("Tente Novamente");
+		System.out.println("Usuário ou senha não encontrados");
 	}
 }

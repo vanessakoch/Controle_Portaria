@@ -7,6 +7,7 @@ import br.edu.ifsc.stages.MuralStage;
 import br.edu.ifsc.stages.CadMoradorStage;
 import br.edu.ifsc.stages.CadVeiculoStage;
 import br.edu.ifsc.stages.CadVisitaStage;
+import br.edu.ifsc.stages.CorrespondenciaStage;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
