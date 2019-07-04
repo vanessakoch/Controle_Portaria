@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTextField;
-
 import br.edu.ifsc.util.Strings;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
